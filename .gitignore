@@ -1,0 +1,10 @@
+# Directories
+.vs/
+.vscode/
+bin/
+int/
+
+# Files
+*.user
+test.cpp
+test.exe
