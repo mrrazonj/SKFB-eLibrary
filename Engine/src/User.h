@@ -1,9 +1,11 @@
 #pragma once
-#include "ServerCore.h"
+#include "CoreIncludes.h"
 
 class User
 {
 private:
+	static int userCount;
+
 	std::string firstName;
 	std::string lastName;
 	std::string middleName;
@@ -35,6 +37,6 @@ public:
 	void genIdQuarter();
 	void genIdBarangay();
 	void genIdNumber();
+
+	std::string getName() const;
 };
-
-
