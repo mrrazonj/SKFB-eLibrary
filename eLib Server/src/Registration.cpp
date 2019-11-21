@@ -4,8 +4,31 @@ namespace Registration
 {
 	User* newUser()
 	{
-		User* user = new User();
-		return user;
+		return new User();
+	}
+
+	void inputName(User& user)
+	{
+		system("cls");
+		std::cout << "Enter your last name:" << std::endl;
+		std::cout << ">" << std::flush;
+		std::string lastNameInput;
+		std::getline(std::cin, lastNameInput);
+
+		std::cout << "Enter your first name:" << std::endl;
+		std::cout << ">" << std::flush;
+		std::string firstNameInput;
+		std::getline(std::cin, firstNameInput);
+
+		std::cout << "Enter your middle name:" << std::endl;
+		std::cout << ">" << std::flush;
+		std::string middleNameInput;
+		std::getline(std::cin, middleNameInput);
+
+		user.setName(lastNameInput, firstNameInput, middleNameInput);
+		std::cout << user.getName() << std::endl;
+
+		system("pause");
 	}
 
 	void inputDateOfBirth(User& user)
@@ -15,10 +38,12 @@ namespace Registration
 		std::cout << ">" << std::flush;
 		std::string yearString;
 		std::getline(std::cin, yearString);
+
 		std::cout << "Enter month of birth:" << std::endl;
 		std::cout << ">" << std::flush;
 		std::string monthString;
 		std::getline(std::cin, monthString);
+
 		std::cout << "Enter day of birth:" << std::endl;
 		std::cout << ">" << std::flush;
 		std::string dayString;
@@ -79,6 +104,20 @@ namespace Registration
 		ss << addressInput << ", " << user.getBarangay() << ", Binangonan Rizal";
 		user.setAddress(ss.str());
 		std::cout << user.getAddress() << std::endl;
+
+		system("pause");
+	}
+
+	void inputContactNumber(User& user)
+	{
+		system("cls");
+		std::cout << "Enter your contact number (preferrably mobile):" << std::endl;
+		std::cout << ">" << std::flush;
+		std::string contactNumber;
+		std::getline(std::cin, contactNumber);
+
+		user.setContactNumber(contactNumber);
+		std::cout << user.getContactNumber() << std::endl;
 
 		system("pause");
 	}
