@@ -7,10 +7,10 @@ User::User()
 
 }
 
-User::User(std::string& firstName, std::string& lastName, std::string& middleName,
-		   std::string& dateOfBirth, int age,
-		   std::string& address, std::string& barangay,
-		   std::string& contactNumber, std::string& emergencyContact, std::string& emergencyContactNumber)
+User::User(const std::string& firstName, const std::string& lastName, const std::string& middleName,
+		   const std::string& dateOfBirth, int age,
+		   const std::string& address, const std::string& barangay,
+		   const std::string& contactNumber, const std::string& emergencyContact, const std::string& emergencyContactNumber)
 			   :firstName(firstName), lastName(lastName), middleName(middleName),
 			    dateOfBirth(dateOfBirth), age(age),
 			    address(address), barangay(barangay),
@@ -97,10 +97,24 @@ std::string User::getAddress() const
 	return this->address;
 }
 
+std::string User::getContactNumber() const
+{
+	return this->contactNumber;
+}
+
 std::ostream& operator<< (std::ostream& stream, User& user)
 {
 	stream << "Name: " << user.getName() << std::endl;
 	return stream;
+}
+
+void User::setName(const std::string& lastName,
+				   const std::string& firstName,
+	               const std::string& middleName)
+{
+	this->firstName = firstName;
+	this->middleName = middleName;
+	this->lastName = lastName;
 }
 
 void User::setAge(int age)
@@ -121,4 +135,9 @@ void User::setBarangay(int barangayId)
 void User::setAddress(const std::string& address)
 {
 	this->address = address;
+}
+
+void User::setContactNumber(const std::string& contactNumber)
+{
+	this->contactNumber = contactNumber;
 }

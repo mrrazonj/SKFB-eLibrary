@@ -27,10 +27,10 @@ private:
 
 public:
 	User();
-	User(std::string& firstName, std::string& lastName, std::string& middleName,
-		 std::string& dateOfBirth, int age,
-		 std::string& address, std::string& barangay,
-		 std::string& contactNumber, std::string& emergencyContact, std::string& emergencyContactNumber);
+	User(const std::string& firstName, const std::string& lastName, const std::string& middleName,
+		 const std::string& dateOfBirth, int age,
+		 const std::string& address, const std::string& barangay,
+		 const std::string& contactNumber, const std::string& emergencyContact, const std::string& emergencyContactNumber);
 	~User();
 
 	void genIdYear();
@@ -43,10 +43,14 @@ public:
 	std::string getDateOfBirth() const;
 	std::string getBarangay() const;
 	std::string getAddress() const;
+	std::string getContactNumber() const;
 
-	void setName(const std::string& name);
+	void setName(const std::string& lastName,
+				 const std::string& firstName,
+				 const std::string& middleName);
 	void setAge(int age);
 	void setdateOfBirth(const std::string& dateOfBirth);
 	void setBarangay(int barangayId);
 	void setAddress(const std::string& address);
+	void setContactNumber(const std::string& contactNumber);
 };

@@ -6,11 +6,11 @@ namespace Registration
 {
 	User* newUser();
 	
-	std::string inputName();
+	void inputName(User& user);
 	void inputDateOfBirth(User& user);
 	void inputBarangay(User& user);
 	void inputAddress(User& user);
-	std::string inputContactNumber();
-	std::string inputEmergencyContact();
-	std::string inputEmergencyNumber();
+	void inputContactNumber(User& user);
+	void inputEmergencyContact();
+	void inputEmergencyNumber();
 }
