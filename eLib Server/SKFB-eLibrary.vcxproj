@@ -26,6 +26,11 @@
   <ItemGroup>
     <ClInclude Include="src\Registration.h" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Engine\Engine.vcxproj">
+      <Project>{45fa9d48-ccd2-4c16-aa28-b5d1649a9ec0}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{1B9C7876-93E8-46BE-8561-85ECDF4AA83C}</ProjectGuid>

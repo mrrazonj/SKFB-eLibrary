@@ -23,6 +23,11 @@ User::User(std::string& firstName, std::string& lastName, std::string& middleNam
 	++userCount;
 }
 
+User::~User()
+{
+
+}
+
 
 void User::genIdYear()
 {
@@ -43,18 +48,9 @@ void User::genIdQuarter()
 	this->idQuarter = (int)(timeTable.tm_mon / 4) + 1;
 }
 
-
-static std::unordered_map<std::string, std::string> barangayIdMap =
-{
-	{"Pag-asa", "01"},
-	{"Tayuman", "02"},
-	{"San Carlos", "03"},
-	{"Tagpos", "04"}
-};
-
 void User::genIdBarangay()
 {
-	this->idBarangay = barangayIdMap[this->barangay];
+	this->idBarangay = Engine::barangayToIdMap[this->barangay];
 }
 
 void User::genIdNumber()
@@ -63,7 +59,7 @@ void User::genIdNumber()
 	static std::vector<int> idNumber;
 	if (!isArrayInitialized) 
 	{
-		for (unsigned int i = 0; i < barangayIdMap.size(); i++)
+		for (unsigned int i = 0; i < Engine::barangayToIdMap.size(); i++)
 		{
 			idNumber[i] = 0;
 		}
@@ -77,12 +73,52 @@ void User::genIdNumber()
 std::string User::getName() const
 {
 	std::stringstream ss;
-	ss << this->firstName << " " << this->middleName << " " << this->lastName;
+	ss << this->lastName << ", " << this->firstName << " " << this->middleName;
 	return ss.str();
+}
+
+int User::getAge() const
+{
+	return this->age;
+}
+
+std::string User::getDateOfBirth() const
+{
+	return this->dateOfBirth;
+}
+
+std::string User::getBarangay() const
+{
+	return this->barangay;
+}
+
+std::string User::getAddress() const
+{
+	return this->address;
 }
 
 std::ostream& operator<< (std::ostream& stream, User& user)
 {
 	stream << "Name: " << user.getName() << std::endl;
 	return stream;
+}
+
+void User::setAge(int age)
+{
+	this->age = age;
+}
+
+void User::setdateOfBirth(const std::string& dateOfBirth)
+{
+	this->dateOfBirth = dateOfBirth;
+}
+
+void User::setBarangay(int barangayId)
+{
+	this->barangay = Engine::idToBarangayMap[barangayId];
+}
+
+void User::setAddress(const std::string& address)
+{
+	this->address = address;
 }

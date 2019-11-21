@@ -39,4 +39,14 @@ public:
 	void genIdNumber();
 
 	std::string getName() const;
+	int getAge() const;
+	std::string getDateOfBirth() const;
+	std::string getBarangay() const;
+	std::string getAddress() const;
+
+	void setName(const std::string& name);
+	void setAge(int age);
+	void setdateOfBirth(const std::string& dateOfBirth);
+	void setBarangay(int barangayId);
+	void setAddress(const std::string& address);
 };
