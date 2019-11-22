@@ -3,9 +3,7 @@
 int main(int argc, char** argv) 
 {
 	User* user = new User();
-	Registration::inputName(*user);
-	Registration::inputDateOfBirth(*user);
-	Registration::inputAddress(*user);
-	Registration::inputContactNumber(*user);
+	Registration::registerUser(*user);
+	user->displayData();
 	delete user;
 }
