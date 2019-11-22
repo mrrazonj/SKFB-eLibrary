@@ -2,9 +2,16 @@
 
 int main(int argc, char** argv)
 {
-	if (!glfwInit())
+	try
 	{
-		Engine::printLine("Unable to initialize glfw!");
+		if (!glfwInit())
+		{
+			Engine::printErr("Unable to initialize glfw!");
+		}
+	}
+	catch (std::runtime_error e)
+	{
+		Engine::handleException(e);
 		return -1;
 	}
 

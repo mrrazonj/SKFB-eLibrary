@@ -1,7 +1,7 @@
 namespace Engine
 {
 	template<typename T>
-	void printLine(T& string)
+	void printLn(const T& string)
 	{
 		std::cout << string << std::endl;
 	}
@@ -13,9 +13,17 @@ namespace Engine
 	}
 
 	template<typename T>
-	void printError(T& string)
+	void printErr(const T& string)
 	{
 		std::cerr << string << std::endl;
-		throw string;
+		throw std::runtime_error(string);
+	}
+
+	template<typename T>
+	void handleException(const T& e)
+	{
+		print("Exception occured: ");
+		printLn(e.what());
+		printLn("Please contact system administrator, closing application...");
 	}
 }

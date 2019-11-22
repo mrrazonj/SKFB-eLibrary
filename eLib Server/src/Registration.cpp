@@ -23,12 +23,12 @@ namespace Registration
 	void inputName(User& user)
 	{
 		system("cls");
-		Engine::printLine("Enter your last name:");
+		Engine::printLn("Enter your last name:");
 		Engine::print(">");
 		std::string lastNameInput;
 		std::getline(std::cin, lastNameInput);
 
-		Engine::printLine("Enter your first name:");
+		Engine::printLn("Enter your first name:");
 		Engine::print(">");
 		std::string firstNameInput;
 		std::getline(std::cin, firstNameInput);

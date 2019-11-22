@@ -20,13 +20,16 @@ namespace Engine
 	};
 
 	template<typename T>
-	void printLine(T& string);
+	void printLn(const T& string);
 
 	template<typename T>
 	void print(const T& string);
 
 	template<typename T>
-	void printError(T& string);
+	void printErr(const T& string);
+
+	template<typename T>
+	void handleException(const T& e);
 }
 
 #include "Engine.tpp"

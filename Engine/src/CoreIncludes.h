@@ -5,8 +5,12 @@
 #include <string>
 #include <sstream>
 #include <fstream>
+
+#include <exception>
+
 #include <chrono>
 #include <ctime>
+
 #include <unordered_map>
 #include <vector>
 
