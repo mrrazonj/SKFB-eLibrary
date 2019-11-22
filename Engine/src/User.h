@@ -44,6 +44,8 @@ public:
 	std::string getBarangay() const;
 	std::string getAddress() const;
 	std::string getContactNumber() const;
+	std::string getEmergencyContact() const;
+	std::string getEmergencyNumber() const;
 
 	void setName(const std::string& lastName,
 				 const std::string& firstName,
@@ -53,4 +55,8 @@ public:
 	void setBarangay(int barangayId);
 	void setAddress(const std::string& address);
 	void setContactNumber(const std::string& contactNumber);
+	void setEmergencyContact(const std::string& emergencyContact);
+	void setEmergencyNumber(const std::string& emergencyNumber);
+
+	void displayData();
 };

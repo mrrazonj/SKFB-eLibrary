@@ -102,9 +102,23 @@ std::string User::getContactNumber() const
 	return this->contactNumber;
 }
 
-std::ostream& operator<< (std::ostream& stream, User& user)
+std::string User::getEmergencyContact() const
 {
-	stream << "Name: " << user.getName() << std::endl;
+	return this->emergencyContact;
+}
+
+std::string User::getEmergencyNumber() const
+{
+	return this->emergencyContactNumber;
+}
+
+std::ostream& operator<< (std::ostream& stream, const User& user)
+{
+	stream << "Name: " << user.getName() << '\n';
+	stream << "Age: " << user.getAge() << " Date of birth: " << user.getDateOfBirth() << '\n';
+	stream << "Address: " << user.getAddress() << '\n';
+	stream << "Contact number: " << user.getContactNumber() << '\n';
+	stream << "Emergency contact: " << user.getEmergencyContact() << " Emergency contact number: " << user.getEmergencyNumber() << std::endl;
 	return stream;
 }
 
@@ -140,4 +154,25 @@ void User::setAddress(const std::string& address)
 void User::setContactNumber(const std::string& contactNumber)
 {
 	this->contactNumber = contactNumber;
+}
+
+void User::setEmergencyContact(const std::string& emergencyContact)
+{
+	this->emergencyContact = emergencyContact;
+}
+
+void User::setEmergencyNumber(const std::string& emergencyNumber)
+{
+	this->emergencyContactNumber = emergencyNumber;
+}
+
+void User::displayData()
+{
+	std::cout << "Name: " << this->getName() << std::endl;
+	std::cout << "Age: " << this->getAge() << " Date of birth: " << this->getDateOfBirth() << std::endl;
+	std::cout << "Address: " << this->getAddress() << std::endl;
+	std::cout << "Contact number: " << this->getContactNumber() << std::endl;
+	std::cout << "Emergency contact: " << this->getEmergencyContact() << " Emergency contact number: " << this->getEmergencyNumber() << std::endl;
+
+	system("pause");
 }

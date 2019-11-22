@@ -7,6 +7,16 @@ namespace Registration
 		return new User();
 	}
 
+	void registerUser(User& user)
+	{
+		inputName(user);
+		inputDateOfBirth(user);
+		inputAddress(user);
+		inputContactNumber(user);
+		inputEmergencyContact(user);
+		inputEmergencyNumber(user);
+	}
+
 	void inputName(User& user)
 	{
 		system("cls");
@@ -113,11 +123,39 @@ namespace Registration
 		system("cls");
 		std::cout << "Enter your contact number (preferrably mobile):" << std::endl;
 		std::cout << ">" << std::flush;
-		std::string contactNumber;
-		std::getline(std::cin, contactNumber);
+		std::string contactNumberInput;
+		std::getline(std::cin, contactNumberInput);
 
-		user.setContactNumber(contactNumber);
+		user.setContactNumber(contactNumberInput);
 		std::cout << user.getContactNumber() << std::endl;
+
+		system("pause");
+	}
+
+	void inputEmergencyContact(User& user)
+	{
+		system("cls");
+		std::cout << "Enter name of emergency contact (preferrably parent or guardian):" << std::endl;
+		std::cout << ">" << std::flush;
+		std::string emergencyContactInput;
+		std::getline(std::cin, emergencyContactInput);
+
+		user.setEmergencyContact(emergencyContactInput);
+		std::cout << user.getEmergencyContact() << std::endl;
+
+		system("pause");
+	}
+
+	void inputEmergencyNumber(User& user)
+	{
+		system("cls");
+		std::cout << "Enter contact number of your emergency contact:" << std::endl;
+		std::cout << ">" << std::flush;
+		std::string emergencyNumberInput;
+		std::getline(std::cin, emergencyNumberInput);
+
+		user.setEmergencyNumber(emergencyNumberInput);
+		std::cout << user.getEmergencyNumber() << std::endl;
 
 		system("pause");
 	}
