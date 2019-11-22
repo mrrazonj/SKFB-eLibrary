@@ -3,9 +3,9 @@
 .vscode/
 bin/
 int/
+Dependencies/
 
 # Files
 *.user
 test.cpp
 test.exe
-sqlite*

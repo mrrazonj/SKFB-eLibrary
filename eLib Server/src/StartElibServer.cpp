@@ -1,7 +1,7 @@
 #include "Registration.h"
-#include <sqlite3.h>
+#include "Engine.h"
 
-int main(int argc, char** argv) 
+int main(int argc, char** argv)
 {
 	static bool isInRegistration = true;
 	while (isInRegistration)
@@ -16,9 +16,9 @@ int main(int argc, char** argv)
 
 		if (exit)
 		{
-			std::cerr << "Cannot open database, please contact sysadmin! " << sqlite3_errmsg(db) << std::endl;
+			std::cerr << "App failed to open database, please contact sysadmin! " << sqlite3_errmsg(db) << std::endl;
 			throw "App failed to open database, please contact sysadmin!";
-			
+
 			system("pause");
 		}
 

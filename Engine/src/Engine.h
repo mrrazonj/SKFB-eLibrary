@@ -18,4 +18,15 @@ namespace Engine
 		{3, "San Carlos"},
 		{4, "Tagpos"}
 	};
+
+	template<typename T>
+	void printLine(T& string);
+
+	template<typename T>
+	void print(const T& string);
+
+	template<typename T>
+	void printError(T& string);
 }
+
+#include "Engine.tpp"

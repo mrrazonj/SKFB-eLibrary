@@ -20,33 +20,33 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{45FA9D48-CCD2-4C16-AA28-B5D1649A9EC0}</ProjectGuid>
-    <RootNamespace>Engine</RootNamespace>
+    <ProjectGuid>{C795E45C-8F88-4A29-AAAE-7EB8DD475A9E}</ProjectGuid>
+    <RootNamespace>GUI</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>eLib Engine</ProjectName>
+    <ProjectName>GUI-Server</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -97,18 +97,14 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Engine\src\;$(SolutionDir)Dependencies\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>elib Engine.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)bin\$(Configuration)-$(Platform)\eLib Engine\</AdditionalLibraryDirectories>
     </Link>
-    <Lib>
-      <AdditionalDependencies>sqlite3.lib;opengl32.lib;glew32.lib;glfw3.lib;User32.lib;Gdi32.lib;Shell32.lib</AdditionalDependencies>
-    </Lib>
-    <Lib>
-      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\SQLite3\;$(SolutionDir)Dependencies\GL\;$(SolutionDir)Dependencies\GLFW\;</AdditionalLibraryDirectories>
-    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -117,18 +113,14 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Engine\src\;$(SolutionDir)Dependencies\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>elib Engine.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)bin\$(Configuration)-$(Platform)\eLib Engine\</AdditionalLibraryDirectories>
     </Link>
-    <Lib>
-      <AdditionalDependencies>sqlite3.lib;opengl32.lib;glew32.lib;glfw3.lib;User32.lib;Gdi32.lib;Shell32.lib</AdditionalDependencies>
-    </Lib>
-    <Lib>
-      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\SQLite3\;$(SolutionDir)Dependencies\GL\;$(SolutionDir)Dependencies\GLFW\;</AdditionalLibraryDirectories>
-    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -139,20 +131,16 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Engine\src\;$(SolutionDir)Dependencies\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>elib Engine.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)bin\$(Configuration)-$(Platform)\eLib Engine\</AdditionalLibraryDirectories>
     </Link>
-    <Lib>
-      <AdditionalDependencies>sqlite3.lib;opengl32.lib;glew32.lib;glfw3.lib;User32.lib;Gdi32.lib;Shell32.lib</AdditionalDependencies>
-    </Lib>
-    <Lib>
-      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\SQLite3\;$(SolutionDir)Dependencies\GL\;$(SolutionDir)Dependencies\GLFW\;</AdditionalLibraryDirectories>
-    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -163,32 +151,27 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Engine\src\;$(SolutionDir)Dependencies\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>elib Engine.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)bin\$(Configuration)-$(Platform)\eLib Engine\</AdditionalLibraryDirectories>
     </Link>
-    <Lib>
-      <AdditionalDependencies>sqlite3.lib;opengl32.lib;glew32.lib;glfw3.lib;User32.lib;Gdi32.lib;Shell32.lib</AdditionalDependencies>
-    </Lib>
-    <Lib>
-      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\SQLite3\;$(SolutionDir)Dependencies\GL\;$(SolutionDir)Dependencies\GLFW\;</AdditionalLibraryDirectories>
-    </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\Engine.cpp" />
-    <ClCompile Include="src\User.cpp" />
+    <ProjectReference Include="..\eLib Server\SKFB-eLibrary.vcxproj">
+      <Project>{1b9c7876-93e8-46be-8561-85ecdf4aa83c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Engine\Engine.vcxproj">
+      <Project>{45fa9d48-ccd2-4c16-aa28-b5d1649a9ec0}</Project>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\CoreIncludes.h" />
-    <ClInclude Include="src\Engine.h" />
-    <ClInclude Include="src\User.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="src\Engine.tpp" />
+    <ClCompile Include="src\Application.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
