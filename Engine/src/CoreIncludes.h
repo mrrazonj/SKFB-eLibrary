@@ -9,6 +9,7 @@
 #include <ctime>
 #include <unordered_map>
 #include <vector>
+#include <sqlite3.h>
 
 #include "Engine.h"
 #include "User.h"

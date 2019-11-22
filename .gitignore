@@ -8,3 +8,4 @@ int/
 *.user
 test.cpp
 test.exe
+sqlite*
