@@ -1,4 +1,5 @@
 #include "Registration.h"
+#include "Engine.h"
 
 namespace Registration
 {
@@ -22,18 +23,18 @@ namespace Registration
 	void inputName(User& user)
 	{
 		system("cls");
-		std::cout << "Enter your last name:" << std::endl;
-		std::cout << ">" << std::flush;
+		Engine::printLine("Enter your last name:");
+		Engine::print(">");
 		std::string lastNameInput;
 		std::getline(std::cin, lastNameInput);
 
-		std::cout << "Enter your first name:" << std::endl;
-		std::cout << ">" << std::flush;
+		Engine::printLine("Enter your first name:");
+		Engine::print(">");
 		std::string firstNameInput;
 		std::getline(std::cin, firstNameInput);
 
 		std::cout << "Enter your middle name:" << std::endl;
-		std::cout << ">" << std::flush;
+		Engine::print(">");
 		std::string middleNameInput;
 		std::getline(std::cin, middleNameInput);
 
@@ -47,17 +48,17 @@ namespace Registration
 	{
 		system("cls");
 		std::cout << "Enter year of birth:" << std::endl;
-		std::cout << ">" << std::flush;
+		Engine::print(">");
 		std::string yearString;
 		std::getline(std::cin, yearString);
 
 		std::cout << "Enter month of birth:" << std::endl;
-		std::cout << ">" << std::flush;
+		Engine::print(">");
 		std::string monthString;
 		std::getline(std::cin, monthString);
 
 		std::cout << "Enter day of birth:" << std::endl;
-		std::cout << ">" << std::flush;
+		Engine::print(">");
 		std::string dayString;
 		std::getline(std::cin, dayString);
 
@@ -67,12 +68,13 @@ namespace Registration
 
 		int currentYear = timeTable.tm_year + 1900;
 		int currentMonth = timeTable.tm_mon + 1;
+		int currentDay = timeTable.tm_mday;
 
 		int birthYear = std::stoi(yearString);
 		int birthMonth = std::stoi(monthString);
 		int birthDay = std::stoi(dayString);
 
-		user.setAge(currentMonth > birthMonth || (currentMonth == birthMonth && timeTable.tm_mday >= birthDay) ? currentYear - birthYear : currentYear - birthYear - 1);
+		user.setAge(currentMonth > birthMonth || (currentMonth == birthMonth && currentDay >= birthDay) ? currentYear - birthYear : currentYear - birthYear - 1);
 		std::cout << user.getAge() << std::endl;
 
 		std::stringstream ss;
@@ -91,7 +93,7 @@ namespace Registration
 		{
 			std::cout << i.first << ' ' << i.second << std::endl;
 		}
-		std::cout << ">" << std::flush;
+		Engine::print(">");
 		std::string idInput;
 		std::getline(std::cin, idInput);
 
@@ -108,7 +110,7 @@ namespace Registration
 		system("cls");
 
 		std::cout << "Enter your current address (Blk #, House #, Street Name, Subdivision)" << std::endl;
-		std::cout << ">" << std::flush;
+		Engine::print('>');
 		std::string addressInput;
 		std::getline(std::cin, addressInput);
 
@@ -124,7 +126,7 @@ namespace Registration
 	{
 		system("cls");
 		std::cout << "Enter your contact number (preferrably mobile):" << std::endl;
-		std::cout << ">" << std::flush;
+		Engine::print(">");
 		std::string contactNumberInput;
 		std::getline(std::cin, contactNumberInput);
 
@@ -138,7 +140,7 @@ namespace Registration
 	{
 		system("cls");
 		std::cout << "Enter name of emergency contact (preferrably parent or guardian):" << std::endl;
-		std::cout << ">" << std::flush;
+		Engine::print(">");
 		std::string emergencyContactInput;
 		std::getline(std::cin, emergencyContactInput);
 
@@ -152,7 +154,7 @@ namespace Registration
 	{
 		system("cls");
 		std::cout << "Enter contact number of your emergency contact:" << std::endl;
-		std::cout << ">" << std::flush;
+		Engine::print(">");
 		std::string emergencyNumberInput;
 		std::getline(std::cin, emergencyNumberInput);
 
