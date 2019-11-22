@@ -25,6 +25,8 @@ private:
 	std::string idBarangay;
 	std::string idNumber;
 
+	std::string userId;
+
 public:
 	User();
 	User(const std::string& firstName, const std::string& lastName, const std::string& middleName,
@@ -37,6 +39,7 @@ public:
 	void genIdQuarter();
 	void genIdBarangay();
 	void genIdNumber();
+	void appendId();
 
 	std::string getName() const;
 	int getAge() const;
@@ -46,6 +49,7 @@ public:
 	std::string getContactNumber() const;
 	std::string getEmergencyContact() const;
 	std::string getEmergencyNumber() const;
+	std::string getUserID() const;
 
 	void setName(const std::string& lastName,
 				 const std::string& firstName,

@@ -15,4 +15,6 @@ namespace Registration
 	void inputContactNumber(User& user);
 	void inputEmergencyContact(User& user);
 	void inputEmergencyNumber(User& user);
+
+	void finalizeID(User& user);
 }

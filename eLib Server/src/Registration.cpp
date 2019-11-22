@@ -15,6 +15,8 @@ namespace Registration
 		inputContactNumber(user);
 		inputEmergencyContact(user);
 		inputEmergencyNumber(user);
+
+		finalizeID(user);
 	}
 
 	void inputName(User& user)
@@ -157,6 +159,19 @@ namespace Registration
 		user.setEmergencyNumber(emergencyNumberInput);
 		std::cout << user.getEmergencyNumber() << std::endl;
 
+		system("pause");
+	}
+
+	void finalizeID(User& user)
+	{
+		system("cls");
+		user.genIdYear();
+		user.genIdQuarter();
+		user.genIdBarangay();
+		user.genIdNumber();
+		user.appendId();
+
+		std::cout << user.getUserID() << std::endl;
 		system("pause");
 	}
 }
