@@ -35,7 +35,9 @@ void User::genIdYear()
 	struct tm timeTable;
 	localtime_s(&timeTable, &rawTime);
 
-	this->idYear = timeTable.tm_year;
+	std::stringstream ss;
+	ss << (timeTable.tm_year + 1900);
+	this->idYear = ss.str();
 }
 
 void User::genIdQuarter()
@@ -44,8 +46,10 @@ void User::genIdQuarter()
 	struct tm timeTable;
 	localtime_s(&timeTable, &rawTime);
 
+	std::stringstream ss;
+	ss << (int)((timeTable.tm_mon / 3) + 1);
 
-	this->idQuarter = (int)(timeTable.tm_mon / 4) + 1;
+	this->idQuarter = ss.str();
 }
 
 void User::genIdBarangay()
@@ -56,18 +60,30 @@ void User::genIdBarangay()
 void User::genIdNumber()
 {
 	static bool isArrayInitialized = false;
-	static std::vector<int> idNumber;
+	static constexpr int numberBarangays = 40;
+	static int idNumber[numberBarangays];
 	if (!isArrayInitialized) 
 	{
-		for (unsigned int i = 0; i < Engine::barangayToIdMap.size(); i++)
+		for (unsigned int i = 0; i < 40; i++)
 		{
 			idNumber[i] = 0;
 		}
 		isArrayInitialized = true;
 	}
 
-	int i = std::stoi(this->idBarangay);
-	this->idNumber = idNumber[i]++;
+	int i = (std::stoi(this->idBarangay)) - 1;
+	std::stringstream ss;
+	ss << ++idNumber[i];
+	this->idNumber = ss.str();
+}
+
+void User::appendId()
+{
+	std::stringstream ss;
+	ss << this->idYear << std::setw(2) << std::setfill('0') << this->idQuarter;
+	ss << std::setw(1) << '-' << std::setw(2) << std::setfill('0') << this->idBarangay << std::setw(5) << this->idNumber;
+	
+	this->userId = ss.str();
 }
 
 std::string User::getName() const
@@ -112,14 +128,9 @@ std::string User::getEmergencyNumber() const
 	return this->emergencyContactNumber;
 }
 
-std::ostream& operator<< (std::ostream& stream, const User& user)
+std::string User::getUserID() const
 {
-	stream << "Name: " << user.getName() << '\n';
-	stream << "Age: " << user.getAge() << " Date of birth: " << user.getDateOfBirth() << '\n';
-	stream << "Address: " << user.getAddress() << '\n';
-	stream << "Contact number: " << user.getContactNumber() << '\n';
-	stream << "Emergency contact: " << user.getEmergencyContact() << " Emergency contact number: " << user.getEmergencyNumber() << std::endl;
-	return stream;
+	return this->userId;
 }
 
 void User::setName(const std::string& lastName,
@@ -168,7 +179,7 @@ void User::setEmergencyNumber(const std::string& emergencyNumber)
 
 void User::displayData()
 {
-	std::cout << "Name: " << this->getName() << std::endl;
+	std::cout << "Name: " << this->getName() << " UID: " << this->getUserID() << std::endl;
 	std::cout << "Age: " << this->getAge() << " Date of birth: " << this->getDateOfBirth() << std::endl;
 	std::cout << "Address: " << this->getAddress() << std::endl;
 	std::cout << "Contact number: " << this->getContactNumber() << std::endl;
