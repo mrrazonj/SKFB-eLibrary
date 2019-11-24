@@ -4,6 +4,7 @@
 bin/
 int/
 Dependencies/
+eLibServer/src/libs/
 
 # Files
 *.user
