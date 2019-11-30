@@ -36,6 +36,14 @@ static int FilterCommas(ImGuiInputTextCallbackData* data)
 		return 0;
 }
 
+static std::unordered_map<std::string, std::string> barangayToSQLTable
+{
+	{"Pagasa", "PAGASA"},
+	{"Tayuman", "TAYUMAN"},
+	{"San Carlos", "SANCARLOS"},
+	{"Tagpos", "TAGPOS"}
+};
+
 namespace Registration
 {
 	void OpenRegistrationForm(bool& isOpen)
@@ -176,6 +184,10 @@ namespace Registration
 		}
 		Core::printLn("Successfully opened user.db");
 
+		std::stringstream sqInsert;
+		sqInsert << "INSERT INTO " << barangayToSQLTable[user.getBarangay()] << "VALUES(";
+
+		sqInsert << "'";
 	}
 }
 
