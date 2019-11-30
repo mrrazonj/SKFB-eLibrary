@@ -1,10 +1,12 @@
 # Directories
 .vs/
 .vscode/
+data/
 bin/
 int/
 Dependencies/
 eLibServer/src/libs/
+SQLTest/
 
 # Files
 *.user

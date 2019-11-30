@@ -9,6 +9,8 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
+#include <SQLite3/sqlite3.h>
+
 namespace Core
 {
 	template<typename T>
