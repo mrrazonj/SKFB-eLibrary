@@ -1,6 +1,8 @@
 #pragma once
 #include <iostream>
+#include <sstream>
 #include <exception>
+#include <unordered_map>
 
 #include <imgui.h>
 #include <imgui_impl_glfw.h>
